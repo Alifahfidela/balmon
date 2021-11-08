@@ -9,14 +9,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Balmon</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url()?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
+    <link rel ="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <!-- Custom styles for this template-->
     <link href="<?= base_url()?>assets/css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url()?>assets/css/ipahStyle.css">
@@ -36,7 +36,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">BALAI MONITORING</div>
             </a>
 
             <!-- Divider -->
@@ -45,7 +45,7 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-fw fa-home"></i>
                     <span>Dashboard</span></a>
             </li>
 
@@ -61,126 +61,24 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Observasi Monitoring</span>
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>LAPORAN</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-                        <a class="collapse-item" href="laporand.php">Laporan Perjalanan Dinas</a>
-                        <a class="collapse-item" href="cards.html">Gambar</a>
-                        <a class="collapse-item" href="cards.html">Laporan ROL</a>
+                        <a class="collapse-item" href="javascript:void(0)" id='observasi'>Observasi Monitoring </a>
+                        <a class="collapse-item" href="javascript:void(0)" id='pengukuran'>Pengukuran Parameter Teknis </a>
+                        <a class="collapse-item" href="javascript:void(0)" id='pengukuran'>Inspeksi Stasiun Radio </a>
+                        <a class="collapse-item" href="javascript:void(0)" id='pengukuran'>Monitor Rutin </a>
+                        <a class="collapse-item" href="javascript:void(0)" id='pengukuran'>Observasi&Monitoring Perairan </a>
+                        <a class="collapse-item" href="javascript:void(0)" id='pengukuran'>Penanganan Gangguan </a>
+                        <a class="collapse-item" href="javascript:void(0)" id='pengukuran'>Monitoring Perangkat Telekomunikasi </a>
                     </div>
                 </div>
             </li>
 
-            <!-- Nav Item - Pengukuran Parameter Teknis Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Pengukuran Parameter Teknis</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
-                        <a class="collapse-item" href="buttons.html">Laporan Perjalanan Dinas</a>
-                        <a class="collapse-item" href="cards.html">Gambar</a>
-                        <a class="collapse-item" href="cards.html">Laporan ROL</a>
-                    </div>
-                </div>
-            </li>
-
-             <!-- Nav Item - Inspeksi Stasiun Radio Menu -->
-             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUt"
-                    aria-expanded="true" aria-controls="collapseUt">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Inspeksi Stasiun Radio</span>
-                </a>
-                <div id="collapseUt" class="collapse" aria-labelledby="headingUt" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
-                        <a class="collapse-item" href="buttons.html">Laporan Perjalanan Dinas</a>
-                        <a class="collapse-item" href="cards.html">Gambar</a>
-                        <a class="collapse-item" href="cards.html">Laporan ROL</a>
-                    </div>
-                </div>
-            </li>
-
-             <!-- Nav Item - Monitor Rutin Menu -->
-             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRut"
-                    aria-expanded="true" aria-controls="collapseRut">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Monitor Rutin</span>
-                </a>
-                <div id="collapseRut" class="collapse" aria-labelledby="headingUt" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
-                        <a class="collapse-item" href="buttons.html">Laporan Perjalan Dinas</a>
-                        <a class="collapse-item" href="cards.html">Gambar</a>
-                        <a class="collapse-item" href="cards.html">Laporan ROL</a>
-                    </div>
-                </div>
-            </li>
-
-             <!-- Nav Item - Observasi dan Monitoring Perairan Menu -->
-             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePer"
-                    aria-expanded="true" aria-controls="collapsePer">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Observasi dan Monitoring Perairan</span>
-                </a>
-                <div id="collapsePer" class="collapse" aria-labelledby="headingPer" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
-                        <a class="collapse-item" href="buttons.html">Laporan Perjalan Dinas</a>
-                        <a class="collapse-item" href="cards.html">Gambar</a>
-                        <a class="collapse-item" href="cards.html">Laporan ROL</a>
-                    </div>
-                </div>
-            </li>
-
-             <!-- Nav Item - Penanganan Gangguan Menu -->
-             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseGang"
-                    aria-expanded="true" aria-controls="collapseGang">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Penanganan Gangguan</span>
-                </a>
-                <div id="collapseGang" class="collapse" aria-labelledby="headingGang" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
-                        <a class="collapse-item" href="buttons.html">Laporan Perjalan Dinas</a>
-                        <a class="collapse-item" href="cards.html">Gambar</a>
-                        <a class="collapse-item" href="cards.html">Laporan ROL</a>
-                    </div>
-                </div>
-            </li>
-
-             <!-- Nav Item - Monitoring Perangkat Telekomunikasi Menu -->
-             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTel"
-                    aria-expanded="true" aria-controls="collapseTel">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Monitoring Perangkat Telekomunikasi</span>
-                </a>
-                <div id="collapseTel" class="collapse" aria-labelledby="headingTel" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
-                        <a class="collapse-item" href="buttons.html">Laporan Perjalan Dinas</a>
-                        <a class="collapse-item" href="cards.html">Gambar</a>
-                        <a class="collapse-item" href="cards.html">Laporan ROL</a>
-                    </div>
-                </div>
-            </li>
-
-
-
-
-
+           
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -210,19 +108,7 @@
                 </div>
             </li>
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
+            
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -256,19 +142,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -453,15 +327,9 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid" id='main-content'>
 
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                    </div>
-
+                    
 
                 </div>
                 <!-- /.container-fluid -->
@@ -519,14 +387,17 @@
 
     <!-- Custom scripts for all pages-->
     <script src="<?= base_url()?>assets/js/sb-admin-2.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="<?= base_url()?>assets/vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="<?= base_url()?>assets/js/demo/chart-area-demo.js"></script>
-    <script src="<?= base_url()?>assets/js/demo/chart-pie-demo.js"></script>
-
+<script>
+    $(document).ready(function(){
+        $('#main-content').load('<?= base_url() ?>index.php/home/dashboard')
+        $('#observasi').click(function(){
+            $('#main-content').load('<?= base_url() ?>index.php/Observasi')
+        })
+    })
+</script>
 </body>
 
 </html>

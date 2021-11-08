@@ -4,20 +4,34 @@ class Observasi_model extends CI_model
 {
     public function getAllObservasi()
     {
-        return $query = $this->db->get('laporan_perjalanan')->result_array();
+        $sql = "SELECT * FROM `laporan`";
+        $res = $this->db->query($sql);
+        return $res->result_array();
     }
 
-    public function tambahUploadData()
+    public function insertData($data, $namaberkas)
     {
-        $data = [
-            "no_spt" => $this->input->post('no_spt', true),
-            "judul" => $this->input->post('judul', true),
-            "lokasi" => $this->input->post('lokasi', true),
-            "jenis" => $this->input->post('jenis', true),
-            "upload_file" => $this->input->post('upload_file', true)
-
-        ];
-
-        $this->db->insert('laporan_perjalanan', $data);
+        $sql = "INSERT INTO `laporan` 
+        (
+            `id`,
+            `no_spt`,
+            `tanggal`, 
+            `judul`, 
+            `lokasi`, 
+            `jenis`, 
+            `namaberkas`
+            ) VALUES 
+            (
+                NULL, 
+                '".$data['no_spt']."', 
+                '".$data['tanggal']."', 
+                '".$data['judul']."', 
+                '".$data['lokasi']."', 
+                '".$data['jenis']."', 
+                '".$namaberkas."'
+            )";
+        $res = $this->db->query($sql);
+        return $res;
     }
+    
 }
