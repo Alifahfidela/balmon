@@ -32,13 +32,13 @@ class Observasi extends CI_Controller
            if($res){
             if ($data['jenis'] == '1') {
                 $config['allowed_types'] = "pdf";
-                $config['upload_path'] = "./upload/pdf";
+                $config['upload_path'] = "./upload/Observasi Monitoring/pdf";
             }else if ($data['jenis'] == '2') {
                 $config['allowed_types'] = "xml";
-                $config['upload_path'] = "./upload/xml";
+                $config['upload_path'] = "./upload/Observasi Monitoring/xml";
             }else if ($data['jenis'] == '3') {
                 $config['allowed_types'] = "jpg";
-                $config['upload_path'] = "./upload/jpg";
+                $config['upload_path'] = "./upload/Observasi Monitoring/jpg";
             }else {
                $status = 9;
             }

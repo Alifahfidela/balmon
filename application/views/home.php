@@ -19,7 +19,16 @@
     <link rel ="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <!-- Custom styles for this template-->
     <link href="<?= base_url()?>assets/css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?= base_url()?>assets/css/ipahStyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type ="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css">
+
+    <link rel="stylesheet" href="<?= base_url()?>assets/css/Style.css">
+    <style>
+        p {
+            word-wrap: break-word;
+            background-color : 'yellow' !important;
+        }
+    </style>
 
 </head>
 
@@ -29,12 +38,13 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="javascript:void(0)";>
+                <div class="sidebar-brand-icon ">
+                    <!-- <i class="fas fa-city"></i> -->
+                    <!-- <img src="<?php echo base_url(); ?>/assets/img/logo.png" class="width: " > -->
                 </div>
                 <div class="sidebar-brand-text mx-3">BALAI MONITORING</div>
             </a>
@@ -44,7 +54,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="javascript:void(0)"; id="dashboard">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -54,20 +64,24 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                <!-- <i class="fas fa-fw fa-folder"></i> -->
+                <h6>LAPORAN</h6>
             </div>
 
             <!-- Nav Item - Observasi Monitoring Menu -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>LAPORAN</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
+                </a> -->
+
+
+
+                <!-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded"> -->
                         <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-                        <a class="collapse-item" href="javascript:void(0)" id='observasi'>Observasi Monitoring </a>
+                        <!-- <a class="collapse-item" href="javascript:void(0)" id='observasi'>Observasi Monitoring </a>
                         <a class="collapse-item" href="javascript:void(0)" id='pengukuran'>Pengukuran Parameter Teknis </a>
                         <a class="collapse-item" href="javascript:void(0)" id='pengukuran'>Inspeksi Stasiun Radio </a>
                         <a class="collapse-item" href="javascript:void(0)" id='pengukuran'>Monitor Rutin </a>
@@ -75,12 +89,84 @@
                         <a class="collapse-item" href="javascript:void(0)" id='pengukuran'>Penanganan Gangguan </a>
                         <a class="collapse-item" href="javascript:void(0)" id='pengukuran'>Monitoring Perangkat Telekomunikasi </a>
                     </div>
-                </div>
+                </div> -->
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="javascript:void(0)" id='observasi' data-toggle="" data-target="#collapsePages"
+                        aria-expanded="true" aria-controls="collapsePages" >
+                        <i class="fas fa-fw fa-folder-open"></i>
+                        <span>Observasi Monitoring</span>
+                    </a> 
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="javascript:void(0)" id='pengukuran' data-toggle="" data-target="#collapsePages"
+                        aria-expanded="true" aria-controls="collapsePages" >
+                        <i class="fas fa-fw fa-folder-open"></i>
+                        <span>Pengukuran Parameter Teknis</span>
+                    </a> 
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="javascript:void(0)" id='inspeksi' data-toggle="" data-target="#collapsePages"
+                        aria-expanded="true" aria-controls="collapsePages" >
+                        <i class="fas fa-fw fa-folder-open"></i>
+                        <span>Inspeksi Stasiun Radio</span>
+                    </a> 
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="javascript:void(0)" id='monitor' data-toggle="" data-target="#collapsePages"
+                        aria-expanded="true" aria-controls="collapsePages" >
+                        <i class="fas fa-fw fa-folder-open"></i>
+                        <span>Monitor Rutin</span>
+                    </a> 
+                </li>
+
+                
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="javascript:void(0)" id='perairan' data-toggle="" data-target="#collapsePages"
+                        aria-expanded="true" aria-controls="collapsePages" >
+                        <i class="fas fa-fw fa-folder-open"></i>
+                        <span>Observasi & Monitoring Perairan</span>
+                    </a> 
+                </li>
+
+                
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="javascript:void(0)" id='gangguan' data-toggle="" data-target="#collapsePages"
+                        aria-expanded="true" aria-controls="collapsePages" >
+                        <i class="fas fa-fw fa-folder-open"></i>
+                        <span>Penanganan Gangguan</span>
+                    </a> 
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="javascript:void(0)" id='perangkat' data-toggle="" data-target="#collapsePages"
+                        aria-expanded="true" aria-controls="collapsePages" >
+                        <i class="fas fa-fw fa-folder-open"></i>
+                        <span>Monitoring Perangkat Telekomunikasi</span>
+                    </a> 
+                </li>
+
             </li>
 
            
             <!-- Divider -->
             <hr class="sidebar-divider">
+
+            <div class="sidebar-heading">
+                Link
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="https://portal.kominfo.go.id" data-toggle="" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages" target="_blank">
+                    <i class="fas fa-fw fa-link"></i>
+                    <span>Portal Kominfo</span>
+                </a> 
+            </li>
+
 
             <!-- Heading -->
             <div class="sidebar-heading">
@@ -109,6 +195,7 @@
             </li>
 
             
+            
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -118,13 +205,7 @@
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
-            <!-- Sidebar Message -->
-            <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-            </div>
-
+            
         </ul>
         <!-- End of Sidebar -->
 
@@ -341,7 +422,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; Balai Monitoring </span>
                     </div>
                 </div>
             </footer>
@@ -389,12 +470,37 @@
     <script src="<?= base_url()?>assets/js/sb-admin-2.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 
+    <!-- IMAGE -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
 
 <script>
     $(document).ready(function(){
-        $('#main-content').load('<?= base_url() ?>index.php/home/dashboard')
+        $('#main-content').load('<?= base_url() ?>index.php/home/dashboard');
+        $('#dashboard').click(function(){
+            $('#main-content').load('<?= base_url() ?>index.php/home/dashboard');
+        })
         $('#observasi').click(function(){
-            $('#main-content').load('<?= base_url() ?>index.php/Observasi')
+            $('#main-content').load('<?= base_url() ?>index.php/Observasi');
+        })
+        $('#pengukuran').click(function(){
+            $('#main-content').load('<?= base_url() ?>index.php/Pengukuran');
+        })
+        $('#inspeksi').click(function(){
+            $('#main-content').load('<?= base_url() ?>index.php/Inspeksi');
+        })
+        $('#monitor').click(function(){
+            $('#main-content').load('<?= base_url() ?>index.php/Monitor');
+        })
+        $('#perairan').click(function(){
+            $('#main-content').load('<?= base_url() ?>index.php/Perairan');
+        })
+        $('#gangguan').click(function(){
+            $('#main-content').load('<?= base_url() ?>index.php/Gangguan');
+        })
+        $('#perangkat').click(function(){
+            $('#main-content').load('<?= base_url() ?>index.php/Perangkat');
         })
     })
 </script>

@@ -1,0 +1,14 @@
+.item{
+    transition: .5s ease-in-out;
+   
+    
+}
+
+.item:hover{
+    filter: brightness(90%);
+}
+
+img{
+    border-radius: 10px;
+}
+

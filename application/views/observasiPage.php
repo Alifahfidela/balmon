@@ -1,6 +1,6 @@
 <!-- Page Heading -->
 <div class="row" >
-    <h1 class="h3 mb-0 text-gray-800">Observasi Monitoring</h1>
+    <h1 class="h3 mb-0 text-gray-800 p-3">Observasi Monitoring</h1>
 </div>
 
 <div class="row m-3">
