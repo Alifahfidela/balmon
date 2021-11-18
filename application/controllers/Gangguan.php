@@ -37,7 +37,7 @@ class Gangguan extends CI_Controller
                 $config['allowed_types'] = "xml";
                 $config['upload_path'] = "./upload/Penanganan Gangguan/xml";
             }else if ($data['jenis'] == '3') {
-                $config['allowed_types'] = "jpg";
+                $config['allowed_types'] = "jpg|png";
                 $config['upload_path'] = "./upload/Penanganan Gangguan/jpg";
             }else {
                $status = 9;

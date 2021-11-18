@@ -27,6 +27,7 @@
                             <th>Lokasi</th>
                             <th>Jenis Laporan</th>
                             <th>File</th>
+                            <th>aksi</th>
 
                         </tr>
                     </thead>
@@ -156,7 +157,7 @@
                         tipedata = 'xml';
                     }else{
                         jenisB = 'Gambar'
-                        tipedata = 'jpg';
+                        tipedata = "jpg|png";
                     }
                     tabel.row.add([
                         data[i]['no_spt'],
@@ -164,7 +165,8 @@
                         data[i]['judul'],
                         data[i]['lokasi'],
                         jenisB,
-                        `<a href="<?=base_url()?>upload/${tipedata}/${data[i]['namaberkas']}">${data[i]['namaberkas']}</a>`,
+                        `<a href="<?=base_url()?>upload/Observasi Monitoring/${tipedata}/${data[i]['namaberkas']}">${data[i]['namaberkas']}</a>`,
+                        `<td>aksi</td>`,
                     ]).draw(false)
                 }
             })
