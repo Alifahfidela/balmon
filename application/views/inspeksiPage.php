@@ -1,6 +1,6 @@
 <!-- Page Heading -->
-<div class="row" >
-    <h1 class="h3 mb-0 text-gray-800 p-3"> Inspeksi Stasiun Radio</h1>
+<div class="row m-3" >
+    <h1 class="h3 text-gray-800"> Inspeksi Stasiun Radio</h1>
 </div>
 
 <div class="row m-3">
@@ -12,7 +12,7 @@
 
 <div class="row m-3">
 <!-- DataTales Example -->
-    <div class="card shadow mb-4">
+    <div class="card shadow col-12 mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Data Laporan Inspeksi Stasiun Radio</h6>
         </div>
@@ -27,16 +27,11 @@
                             <th>Lokasi</th>
                             <th>Jenis Laporan</th>
                             <th>File</th>
-
                         </tr>
                     </thead>
-                    
-
                     <tbody>
 
                     </tbody>
-
-
                 </table>
             </div>
         </div>
@@ -47,12 +42,12 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document"> 
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Upload File</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+                <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
@@ -60,7 +55,7 @@
                 <div class="form-group">
                     <label for="exampleInputEmail1">No.SPT</label>
                     <input name='no_spt' type="text" class="form-control" id="exampleInputEmail1" >
-                    
+
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Tanggal SPT</label>
@@ -69,35 +64,35 @@
                 <div class="form-group">
                     <label for="exampleInputJudul">Judul</label>
                     <input name='judul' type="text" class="form-control" id="exampleInputJudul">
-                </div>   
+                </div>
                 <div class="form-group">
                     <label for="exampleInputLokasi">Lokasi</label>
                     <select class="form-control" id="exampleInputLokasi" name="lokasi">
-                    <option value="Kabupaten Banyuasin">Kabupaten Banyuasin</option>
-                    <option value="Kabupaten Empat Lawang">Kabupaten Empat Lawang</option>
-                    <option value="Kabupaten Lahat">Kabupaten Lahat</option>
-                    <option value="Kabupaten Muara Enim">Kabupaten Muara Enim</option>
-                    <option value="Kabupaten Musi Banyuasin">Kabupaten Musi Banyuasin</option>
-                    <option value="Kabupaten Musi Rawas">Kabupaten Musi Rawas</option>
-                    <option value="Kabupaten Musi Rawas Utara">Kabupaten Musi Rawas Utara</option>
-                    <option value="Kabupaten Ogan Ilir">Kabupaten Ogan Ilir</option>
-                    <option value="Kabupaten Ogan Komering Ilir">Kabupaten Ogan Komering Ilir</option>
-                    <option value="Kabupaten Ogan Komering Ulu">Kabupaten Ogan Komering Ulu</option>
-                    <option value="Kabupaten Ogan Komering Ulu Selatan">Kabupaten Ogan Komering Ulu Selatan</option>
-                    <option value="Kabupaten Ogan Komering Ulu Timur">Kabupaten Ogan Komering Ulu Timur</option>
-                    <option value="Kabupaten Penukal Abab Lematang Ilir">Kabupaten Penukal Abab Lematang Ilir</option>
-                    <option value="Kota Lubuklinggau">Kota Lubuklinggau</option>
-                    <option value="Kota Pagar Alam">Kota Pagar Alam</option>
-                    <option value="Kota Palembang">Kota Palembang</option>
-                    <option value="Kota Prabumulih">Kota Prabumulih</option>
+                        <option value="Kabupaten Banyuasin">Kabupaten Banyuasin</option>
+                        <option value="Kabupaten Empat Lawang">Kabupaten Empat Lawang</option>
+                        <option value="Kabupaten Lahat">Kabupaten Lahat</option>
+                        <option value="Kabupaten Muara Enim">Kabupaten Muara Enim</option>
+                        <option value="Kabupaten Musi Banyuasin">Kabupaten Musi Banyuasin</option>
+                        <option value="Kabupaten Musi Rawas">Kabupaten Musi Rawas</option>
+                        <option value="Kabupaten Musi Rawas Utara">Kabupaten Musi Rawas Utara</option>
+                        <option value="Kabupaten Ogan Ilir">Kabupaten Ogan Ilir</option>
+                        <option value="Kabupaten Ogan Komering Ilir">Kabupaten Ogan Komering Ilir</option>
+                        <option value="Kabupaten Ogan Komering Ulu">Kabupaten Ogan Komering Ulu</option>
+                        <option value="Kabupaten Ogan Komering Ulu Selatan">Kabupaten Ogan Komering Ulu Selatan</option>
+                        <option value="Kabupaten Ogan Komering Ulu Timur">Kabupaten Ogan Komering Ulu Timur</option>
+                        <option value="Kabupaten Penukal Abab Lematang Ilir">Kabupaten Penukal Abab Lematang Ilir</option>
+                        <option value="Kota Lubuklinggau">Kota Lubuklinggau</option>
+                        <option value="Kota Pagar Alam">Kota Pagar Alam</option>
+                        <option value="Kota Palembang">Kota Palembang</option>
+                        <option value="Kota Prabumulih">Kota Prabumulih</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputJenis">Jenis Laporan</label>
                     <select class="form-control" id="exampleInputJenis" name="jenis">
-                    <option value="1">Laporan Perjalanan Dinas</option>
-                    <option value="2">Laporan ROL</option>
-                    <option value="3">Lampiran Gambar</option>
+                        <option value="1">Laporan Perjalanan Dinas</option>
+                        <option value="2">Laporan ROL</option>
+                        <option value="3">Lampiran Gambar</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -107,7 +102,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Submit</button>
-                </div>   
+                </div>
             </form>
         </div>
     </div>
