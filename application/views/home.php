@@ -336,7 +336,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" id="btn-logout" href="javascript:void(0);">Logout</a>
                 </div>
             </div>
         </div>
@@ -384,6 +384,16 @@
         })
         $('#perangkat').click(function(){
             $('#main-content').load('<?=base_url()?>index.php/Perangkat');
+        })
+        $('#btn-logout').click(function(){
+            $.ajax({
+                url:'<?=base_url()?>index.php/Auth/Logout',
+                method:'POST'
+            }).done(function(msg){
+                if(JSON.parse(msg)==1){
+                    window.location.replace('<?=base_url()?>index.php/Auth/Redirect')
+                }
+            })
         })
     })
 </script>

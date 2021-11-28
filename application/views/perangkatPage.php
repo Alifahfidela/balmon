@@ -90,9 +90,9 @@
                 <div class="form-group">
                     <label for="exampleInputJenis">Jenis Laporan</label>
                     <select class="form-control" id="exampleInputJenis" name="jenis">
-                        <option value="1">Laporan Perjalanan Dinas</option>
-                        <option value="2">Laporan ROL</option>
-                        <option value="3">Lampiran Gambar</option>
+                        <option value="1">Laporan Perjalanan Dinas (PDF)</option>
+                        <option value="2">Laporan ROL(XML)</option>
+                        <option value="3">Lampiran Gambar(JPG|JPEG)</option>
                     </select>
                 </div>
                 <div class="form-group">

@@ -28,36 +28,37 @@ class Observasi extends CI_Controller
         $data = $_POST;
         if (isset($_FILES['berkas']['name'])) {
             $namaberkas = $_FILES['berkas']['name'];
-            $res = $this->Observasi_model->insertData($data, $namaberkas);
-            if ($res) {
-                if ($data['jenis'] == '1') {
-                    $config['allowed_types'] = "pdf";
-                    $config['upload_path'] = "./upload/Observasi Monitoring/pdf";
-                } else if ($data['jenis'] == '2') {
-                    $config['allowed_types'] = "xml";
-                    $config['upload_path'] = "./upload/Observasi Monitoring/xml";
-                } else if ($data['jenis'] == '3') {
-                    $config['allowed_types'] = "jpg|jpeg";
-                    $config['upload_path'] = "./upload/Observasi Monitoring/jpg";
-                } else {
-                    $status = 9;
-                }
+            if ($data['jenis'] == '1') {
+                $config['allowed_types'] = "pdf";
+                $config['upload_path'] = "./upload/Observasi Monitoring/pdf";
+            } else if ($data['jenis'] == '2') {
+                $config['allowed_types'] = "xml";
+                $config['upload_path'] = "./upload/Observasi Monitoring/xml";
+            } else if ($data['jenis'] == '3') {
+                $config['allowed_types'] = "jpg|jpeg";
+                $config['upload_path'] = "./upload/Observasi Monitoring/jpg";
+            } else {
+                $status = 9;
+            }
 
-                $filename = $_FILES['berkas']['name'];
-                $config['file_name'] = $filename;
-                $config['max_size'] = '2048';
+            $filename = $_FILES['berkas']['name'];
+            $config['file_name'] = $filename;
+            $config['max_size'] = '2048';
 
-                $this->load->library('upload', $config);
-                if ($this->upload->do_upload('berkas')) {
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('berkas')) {
+                $res = $this->Observasi_model->insertData($data, $namaberkas);
+                if ($res) {
                     $status = 1;
                     $msg = "berhasil";
                 } else {
-                    $status = 4;
-                    $msg = $this->upload->display_errors();
+                    $status = 3;
+                    $msg = "Terjadi error di query input data";
                 }
+
             } else {
-                $status = 3;
-                $msg = "Terjadi error di query input data";
+                $status = 4;
+                $msg = $this->upload->display_errors();
             }
         } else {
             $status = 3;
@@ -72,6 +73,23 @@ class Observasi extends CI_Controller
 
     public function deleteData()
     {
-        echo json_encode($_POST);
+        $data = $_POST;
+        if ($data['jenis'] == '1') {
+            $dir = './upload/Observasi Monitoring/pdf/';
+        } else if ($data['jenis'] == '2') {
+            $dir = "./upload/Observasi Monitoring/xml/";
+        } else if ($data['jenis'] == '3') {
+            $dir = "./upload/Observasi Monitoring/jpg/";
+        } else {
+            $status = 9;
+        }
+        $path = $dir . $data['namaberkas'];
+        if (unlink($path)) {
+            $msg = 'berhasil hapus berkas';
+        } else {
+            $msg = 'gagal hapus berkas';
+        }
+        $res = $this->Observasi_model->deleteData($data['id']);
+        echo json_encode(array('msg' => $msg, 'res' => $res));
     }
 }

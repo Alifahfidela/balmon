@@ -11,27 +11,34 @@ class Observasi_model extends CI_model
 
     public function insertData($data, $namaberkas)
     {
-        $sql = "INSERT INTO `laporan` 
+        $sql = "INSERT INTO `laporan`
         (
             `id`,
             `no_spt`,
-            `tanggal`, 
-            `judul`, 
-            `lokasi`, 
-            `jenis`, 
+            `tanggal`,
+            `judul`,
+            `lokasi`,
+            `jenis`,
             `namaberkas`
-            ) VALUES 
+            ) VALUES
             (
-                NULL, 
-                '".$data['no_spt']."', 
-                '".$data['tanggal']."', 
-                '".$data['judul']."', 
-                '".$data['lokasi']."', 
-                '".$data['jenis']."', 
-                '".$namaberkas."'
+                NULL,
+                '" . $data['no_spt'] . "',
+                '" . $data['tanggal'] . "',
+                '" . $data['judul'] . "',
+                '" . $data['lokasi'] . "',
+                '" . $data['jenis'] . "',
+                '" . $namaberkas . "'
             )";
         $res = $this->db->query($sql);
         return $res;
     }
-    
+
+    public function deleteData($id)
+    {
+        $sql = "DELETE FROM `laporan` WHERE `laporan`.`id` = " . $id;
+        $res = $this->db->query($sql);
+        return $res;
+    }
+
 }

@@ -1,22 +1,25 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class home extends CI_Controller
+class Login extends CI_Controller
 {
+
     public function __construct()
     {
         parent::__construct();
         $user = $_SESSION;
-        if ($user['role'] != 1) {
+        if (isset($user['role'])) {
             redirect(base_url() . "index.php/Auth/Redirect");
         }
     }
+
     public function index()
     {
-        $this->load->view('home');
+        $this->load->view('loginPage');
+
     }
-    public function dashboard()
-    {
-        $this->load->view('dashboard');
-    }
+
 }
+
+/* End of file Login.php */
+/* Location: ./application/controllers/Login.php */

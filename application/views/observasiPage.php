@@ -90,9 +90,9 @@
                 <div class="form-group">
                     <label for="exampleInputJenis">Jenis Laporan</label>
                     <select class="form-control" id="exampleInputJenis" name="jenis">
-                        <option value="1">Laporan Perjalanan Dinas</option>
-                        <option value="2">Laporan ROL</option>
-                        <option value="3">Lampiran Gambar</option>
+                        <option value="1">Laporan Perjalanan Dinas (PDF)</option>
+                        <option value="2">Laporan ROL(XML)</option>
+                        <option value="3">Lampiran Gambar(JPG|JPEG)</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -106,8 +106,29 @@
             </form>
         </div>
     </div>
+  </div>
 </div>
 
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Apa anda yakin ingin menghapus berkas ini?</p>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-danger" id="btn-conf-delete" data-dismiss="modal">Hapus</button>
+        <button type="button" class="btn btn-secondary">Batal</button>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
     $(document).ready(function () {
         var tabel = $('#dataTable').DataTable();
@@ -160,21 +181,29 @@
                         data[i]['lokasi'],
                         jenisB,
                         `<a href="<?=base_url()?>upload/${tipedata}/${data[i]['namaberkas']}">${data[i]['namaberkas']}</a>`,
-                        `<a type="button" class="btn btn-warning btn-hapus" href="javascript:void(0);" data-id="${data[i]['id']}"><i class="far fa-trash-alt"></i></a>`
+                        `<button type="button" class="btn btn-danger btn-hapus" href="javascript:void(0);" data-id="${data[i]['id']}" data-jenis="${data[i]['jenis']}" data-namaberkas="${data[i]['namaberkas']}" data-toggle="modal" data-target="#deleteModal"><i class="far fa-trash-alt"></i></button>`
                     ]).draw(false)
                 }
             })
         }
         renderTabel();
         $('#dataTable').on('click','.btn-hapus',function () {
-            const id = $(this).data('id');
-            // console.log(id);
+            $('#btn-conf-delete').attr('data-id',$(this).data('id'));
+            $('#btn-conf-delete').attr('data-jenis',$(this).data('jenis'));
+            $('#btn-conf-delete').attr('data-namaberkas',$(this).data('namaberkas'));
+        })
+        $('#btn-conf-delete').click(function(){
+            const data = {
+                id:$(this).data('id'),
+                jenis:$(this).data('jenis'),
+                namaberkas:$(this).data('namaberkas')
+            };
             $.ajax({
                 method: "POST",
                 url:"<?=base_url()?>index.php/Observasi/deleteData",
-                data: {id}
+                data: data
             }).done(function(msg){
-                console.log(msg)
+                renderTabel();
             })
         })
     })
