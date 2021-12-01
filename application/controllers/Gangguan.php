@@ -14,7 +14,6 @@ class Gangguan extends CI_Controller
     public function index()
     {
         $this->load->view('GangguanPage');
-
     }
 
     public function getAllGangguan()
@@ -48,19 +47,18 @@ class Gangguan extends CI_Controller
 
             $this->load->library('upload', $config);
             if ($this->upload->do_upload('berkas')) {
-                $res = $this->Gangguan_model->insertData($data, $namaberkas);
-                if ($res) {
-                    $status = 1;
-                    $msg = "berhasil";
-                } else {
-                    $status = 3;
-                    $msg = "Terjadi error di query input data";
-                }
             } else {
                 $status = 4;
                 $msg = $this->upload->display_errors();
             }
-
+            $res = $this->Gangguan_model->insertData($data, $namaberkas);
+            if ($res) {
+                $status = 1;
+                $msg = "berhasil";
+            } else {
+                $status = 3;
+                $msg = "Terjadi error di query input data";
+            }
         } else {
             $status = 3;
             $msg = "berkas tidak ada";
@@ -70,5 +68,27 @@ class Gangguan extends CI_Controller
             'msg' => $msg,
         ];
         echo json_encode($ret);
+    }
+
+    public function deleteData()
+    {
+        $data = $_POST;
+        if ($data['jenis'] == '1') {
+            $dir = './upload/Penanganan Gangguan/pdf/';
+        } else if ($data['jenis'] == '2') {
+            $dir = "./upload/Penanganan Gangguan/xml/";
+        } else if ($data['jenis'] == '3') {
+            $dir = "./upload/Penanganan Gangguan/jpg/";
+        } else {
+            $status = 9;
+        }
+        $path = $dir . $data['namaberkas'];
+        if (unlink($path)) {
+            $msg = 'berhasil hapus berkas';
+        } else {
+            $msg = 'gagal hapus berkas';
+        }
+        $res = $this->Gangguan_model->deleteData($data['id']);
+        echo json_encode(array('msg' => $msg, 'res' => $res));
     }
 }

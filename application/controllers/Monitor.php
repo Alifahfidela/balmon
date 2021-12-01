@@ -14,7 +14,6 @@ class Monitor extends CI_Controller
     public function index()
     {
         $this->load->view('MonitorPage');
-
     }
 
     public function getAllMonitor()
@@ -48,17 +47,17 @@ class Monitor extends CI_Controller
 
             $this->load->library('upload', $config);
             if ($this->upload->do_upload('berkas')) {
-                $res = $this->Monitor_model->insertData($data, $namaberkas);
-                if ($res) {
-                    $status = 1;
-                    $msg = "berhasil";
-                } else {
-                    $status = 3;
-                    $msg = "Terjadi error di query input data";
-                }
             } else {
                 $status = 4;
                 $msg = $this->upload->display_errors();
+            }
+            $res = $this->Monitor_model->insertData($data, $namaberkas);
+            if ($res) {
+                $status = 1;
+                $msg = "berhasil";
+            } else {
+                $status = 3;
+                $msg = "Terjadi error di query input data";
             }
         } else {
             $status = 3;
@@ -69,5 +68,26 @@ class Monitor extends CI_Controller
             'msg' => $msg,
         ];
         echo json_encode($ret);
+    }
+    public function deleteData()
+    {
+        $data = $_POST;
+        if ($data['jenis'] == '1') {
+            $dir = './upload/Monitor Rutin/pdf/';
+        } else if ($data['jenis'] == '2') {
+            $dir = "./upload/Monitor Rutin/xml/";
+        } else if ($data['jenis'] == '3') {
+            $dir = "./upload/Monitor Rutin/jpg/";
+        } else {
+            $status = 9;
+        }
+        $path = $dir . $data['namaberkas'];
+        if (unlink($path)) {
+            $msg = 'berhasil hapus berkas';
+        } else {
+            $msg = 'gagal hapus berkas';
+        }
+        $res = $this->Monitor_model->deleteData($data['id']);
+        echo json_encode(array('msg' => $msg, 'res' => $res));
     }
 }

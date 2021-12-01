@@ -14,7 +14,6 @@ class Observasi extends CI_Controller
     public function index()
     {
         $this->load->view('observasiPage');
-
     }
 
     public function getAllObservasi()
@@ -47,18 +46,17 @@ class Observasi extends CI_Controller
 
             $this->load->library('upload', $config);
             if ($this->upload->do_upload('berkas')) {
-                $res = $this->Observasi_model->insertData($data, $namaberkas);
-                if ($res) {
-                    $status = 1;
-                    $msg = "berhasil";
-                } else {
-                    $status = 3;
-                    $msg = "Terjadi error di query input data";
-                }
-
             } else {
                 $status = 4;
                 $msg = $this->upload->display_errors();
+            }
+            $res = $this->Observasi_model->insertData($data, $namaberkas);
+            if ($res) {
+                $status = 1;
+                $msg = "berhasil";
+            } else {
+                $status = 3;
+                $msg = "Terjadi error di query input data";
             }
         } else {
             $status = 3;

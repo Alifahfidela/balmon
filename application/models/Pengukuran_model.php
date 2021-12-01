@@ -23,15 +23,21 @@ class Pengukuran_model extends CI_model
             ) VALUES 
             (
                 NULL, 
-                '".$data['no_spt']."', 
-                '".$data['tanggal']."', 
-                '".$data['judul']."', 
-                '".$data['lokasi']."', 
-                '".$data['jenis']."', 
-                '".$namaberkas."'
+                '" . $data['no_spt'] . "', 
+                '" . $data['tanggal'] . "', 
+                '" . $data['judul'] . "', 
+                '" . $data['lokasi'] . "', 
+                '" . $data['jenis'] . "', 
+                '" . $namaberkas . "'
             )";
         $res = $this->db->query($sql);
         return $res;
     }
-    
+
+    public function deleteData($id)
+    {
+        $sql = "DELETE FROM `pengukuran` WHERE `pengukuran`.`id` = " . $id;
+        $res = $this->db->query($sql);
+        return array('res' => $res, 'sql' => $sql);
+    }
 }
