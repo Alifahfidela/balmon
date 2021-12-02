@@ -1,6 +1,6 @@
 <!-- Page Heading -->
 <div class="row m-3">
-    <h1 class="h3 text-gray-800 "> Penanganan Gangguan</h1>
+    <h1 class="h3 text-gray-800 ">Penanganan Gangguan</h1>
 </div>
 
 <div class="row m-3">
@@ -27,6 +27,7 @@
                             <th>Lokasi</th>
                             <th>Jenis Laporan</th>
                             <th>File</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,6 +55,7 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1">No.SPT</label>
                         <input name='no_spt' type="text" class="form-control" id="exampleInputEmail1">
+
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Tanggal SPT</label>
@@ -106,6 +108,8 @@
         </div>
     </div>
 </div>
+
+
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -131,7 +135,7 @@
         $('#form').submit(function() {
             event.preventDefault();
             $.ajax({
-                url: "<?= base_url() ?>index.php/Gangguan/insertData",
+                url: "<?= base_url() ?>index.php/Observasi/insertData",
                 method: "POST",
                 data: new FormData(this),
                 processData: false,
@@ -150,7 +154,6 @@
                     $('input[name="lokasi"]').val('Kabupaten Banyuasin').change();
                     $('input[name="jenis"]').val('1').change();
                     $('input[name="berkas"]').val('');
-
                 } else {
                     console.log('gagal')
                     console.log(res['msg']);

@@ -1,6 +1,6 @@
 <!-- Page Heading -->
 <div class="row m-3">
-    <h1 class="h3 text-gray-800 "> Observasi & Monitoring Perairan</h1>
+    <h1 class="h3 text-gray-800 ">Observasi & Monitoring Perairan</h1>
 </div>
 
 <div class="row m-3">
@@ -27,6 +27,7 @@
                             <th>Lokasi</th>
                             <th>Jenis Laporan</th>
                             <th>File</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,7 +38,6 @@
         </div>
     </div>
 </div>
-
 
 
 <!-- Modal -->
@@ -55,6 +55,7 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1">No.SPT</label>
                         <input name='no_spt' type="text" class="form-control" id="exampleInputEmail1">
+
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Tanggal SPT</label>
@@ -107,6 +108,7 @@
         </div>
     </div>
 </div>
+
 
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

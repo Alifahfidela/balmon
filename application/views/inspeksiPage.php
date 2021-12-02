@@ -1,6 +1,6 @@
 <!-- Page Heading -->
 <div class="row m-3">
-    <h1 class="h3 text-gray-800"> Inspeksi Stasiun Radio</h1>
+    <h1 class="h3 text-gray-800 ">Inspeksi Stasiun Radio</h1>
 </div>
 
 <div class="row m-3">
@@ -14,7 +14,7 @@
     <!-- DataTales Example -->
     <div class="card shadow col-12 mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data Laporan Inspeksi Stasiun Radio</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data Inspeksi Stasiun Radio</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -27,6 +27,7 @@
                             <th>Lokasi</th>
                             <th>Jenis Laporan</th>
                             <th>File</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,7 +37,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 
@@ -108,11 +108,13 @@
         </div>
     </div>
 </div>
+
+
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
+                <h5 class="modal-title"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

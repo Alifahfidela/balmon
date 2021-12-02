@@ -1,6 +1,6 @@
 <!-- Page Heading -->
 <div class="row m-3">
-    <h1 class="h3 text-gray-800 "> Monitor Perangkat Telekomunikasi</h1>
+    <h1 class="h3 text-gray-800 ">Monitor Perangkat Telekomunikasi</h1>
 </div>
 
 <div class="row m-3">
@@ -27,6 +27,7 @@
                             <th>Lokasi</th>
                             <th>Jenis Laporan</th>
                             <th>File</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,7 +38,6 @@
         </div>
     </div>
 </div>
-
 
 
 <!-- Modal -->
@@ -108,6 +108,7 @@
         </div>
     </div>
 </div>
+
 
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
