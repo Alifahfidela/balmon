@@ -114,7 +114,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
+                <h5 class="modal-title">Konfirmasi</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -135,7 +135,7 @@
         $('#form').submit(function() {
             event.preventDefault();
             $.ajax({
-                url: "<?= base_url() ?>index.php/Observasi/insertData",
+                url: "<?= base_url() ?>index.php/Gangguan/insertData",
                 method: "POST",
                 data: new FormData(this),
                 processData: false,
@@ -187,7 +187,7 @@
                         data[i]['judul'],
                         data[i]['lokasi'],
                         jenisB,
-                        `<a href="<?= base_url() ?>upload/${tipedata}/${data[i]['namaberkas']}">${data[i]['namaberkas']}</a>`,
+                        `<a href="<?= base_url() ?>upload/Penanganan Gangguan/${tipedata}/${data[i]['namaberkas']}">${data[i]['namaberkas']}</a>`,
                         `<button type="button" class="btn btn-danger btn-hapus" href="javascript:void(0);" data-id="${data[i]['id']}" data-jenis="${data[i]['jenis']}" data-namaberkas="${data[i]['namaberkas']}" data-toggle="modal" data-target="#deleteModal"><i class="far fa-trash-alt"></i></button>`
                     ]).draw(false)
                 }

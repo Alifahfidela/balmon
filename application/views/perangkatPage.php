@@ -1,6 +1,6 @@
 <!-- Page Heading -->
 <div class="row m-3">
-    <h1 class="h3 text-gray-800 ">Monitor Perangkat Telekomunikasi</h1>
+    <h1 class="h3 text-gray-800 ">Monitoring Perangkat Telekomunikasi</h1>
 </div>
 
 <div class="row m-3">
@@ -14,7 +14,7 @@
     <!-- DataTales Example -->
     <div class="card shadow col-12 mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data Laporan Monitor Perangkat Telekomunikasi</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data Laporan Monitoring Perangkat Telekomunikasi</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -114,7 +114,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
+                <h5 class="modal-title">Konfirmasi</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -187,7 +187,7 @@
                         data[i]['judul'],
                         data[i]['lokasi'],
                         jenisB,
-                        `<a href="<?= base_url() ?>upload/${tipedata}/${data[i]['namaberkas']}">${data[i]['namaberkas']}</a>`,
+                        `<a href="<?= base_url() ?>upload/Monitoring Perangkat Telekomunikasi/${tipedata}/${data[i]['namaberkas']}">${data[i]['namaberkas']}</a>`,
                         `<button type="button" class="btn btn-danger btn-hapus" href="javascript:void(0);" data-id="${data[i]['id']}" data-jenis="${data[i]['jenis']}" data-namaberkas="${data[i]['namaberkas']}" data-toggle="modal" data-target="#deleteModal"><i class="far fa-trash-alt"></i></button>`
                     ]).draw(false)
                 }
