@@ -26,30 +26,14 @@ class Observasi extends CI_Controller
     {
         $data = $_POST;
         if (isset($_FILES['berkas']['name'])) {
-            $namaberkas = $_FILES['berkas']['name'];
-            if ($data['jenis'] == '1') {
-                $config['allowed_types'] = "pdf";
-                $config['upload_path'] = "./upload/Observasi Monitoring/pdf";
-            } else if ($data['jenis'] == '2') {
-                $config['allowed_types'] = "xml|csv";
-                $config['upload_path'] = "./upload/Observasi Monitoring/xml";
-            } else if ($data['jenis'] == '3') {
-                $config['allowed_types'] = "jpg|jpeg";
-                $config['upload_path'] = "./upload/Observasi Monitoring/jpg";
-            } else {
-                $status = 9;
-            }
+            // File Case
+            $this->load->helper('UploadHelp');
 
-            $filename = $_FILES['berkas']['name'];
-            $config['file_name'] = $filename;
-            $config['max_size'] = '2048';
+            $namaberkas = seoUrl($_FILES['berkas']['name']);
 
-            $this->load->library('upload', $config);
-            if ($this->upload->do_upload('berkas')) {
-            } else {
-                $status = 4;
-                $msg = $this->upload->display_errors();
-            }
+            $uploaded = file_upload('Observasi Monitoring', $data, $namaberkas);
+            // End File Case
+            $configs['config'] = $uploaded['config'];
             $res = $this->Observasi_model->insertData($data, $namaberkas);
             if ($res) {
                 $status = 1;
@@ -58,14 +42,17 @@ class Observasi extends CI_Controller
                 $status = 3;
                 $msg = "Terjadi error di query input data";
             }
+            // 
         } else {
             $status = 3;
             $msg = "berkas tidak ada";
         }
-        $ret = [
+        $ret = array(
             'status' => $status,
             'msg' => $msg,
-        ];
+            'configs' => $configs,
+            'data'      => $data
+        );
         echo json_encode($ret);
     }
 

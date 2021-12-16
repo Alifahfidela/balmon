@@ -26,31 +26,14 @@ class Inspeksi extends CI_Controller
     {
         $data = $_POST;
         if (isset($_FILES['berkas']['name'])) {
-            $namaberkas = $_FILES['berkas']['name'];
+            // File Case
+            $this->load->helper('UploadHelp');
 
-            if ($data['jenis'] == '1') {
-                $config['allowed_types'] = "pdf";
-                $config['upload_path'] = "./upload/Inspeksi Stasiun Radio/pdf";
-            } else if ($data['jenis'] == '2') {
-                $config['allowed_types'] = "xml";
-                $config['upload_path'] = "./upload/Inspeksi Stasiun Radio/xml";
-            } else if ($data['jenis'] == '3') {
-                $config['allowed_types'] = "jpg|png";
-                $config['upload_path'] = "./upload/Inspeksi Stasiun Radio/jpg";
-            } else {
-                $status = 9;
-            }
+            $namaberkas = seoUrl($_FILES['berkas']['name']);
 
-            $filename = $_FILES['berkas']['name'];
-            $config['file_name'] = $filename;
-            $config['max_size'] = '2048';
-
-            $this->load->library('upload', $config);
-            if ($this->upload->do_upload('berkas')) {
-            } else {
-                $status = 4;
-                $msg = $this->upload->display_errors();
-            }
+            $uploaded = file_upload('Inspeksi Stasiun Radio', $data, $namaberkas);
+            // End File Case
+            $configs['config'] = $uploaded['config'];
             $res = $this->Inspeksi_model->insertData($data, $namaberkas);
             if ($res) {
                 $status = 1;
@@ -59,6 +42,7 @@ class Inspeksi extends CI_Controller
                 $status = 3;
                 $msg = "Terjadi error di query input data";
             }
+            // 
         } else {
             $status = 3;
             $msg = "berkas tidak ada";
